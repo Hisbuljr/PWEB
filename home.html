@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catering D'flamboyan 13 Sidoarjo - Catering Terlaris Sepanjang masa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .top-bar {
+            background-color: #e83e8c;
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+
+        .top-bar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .social-icons a {
+            color: white;
+            margin-left: 15px;
+            font-size: 16px;
+        }
+
+        .main-header {
+            padding: 15px 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #e83e8c;
+        }
+
+        .logo span {
+            color: #333;
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        nav ul li a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #e83e8c;
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #e83e8c;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1526047932273-341f2a76394f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #e83e8c;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #d42d7b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: #777;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .product-categories {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .category-btn {
+            padding: 8px 20px;
+            margin: 0 10px;
+            border-radius: 20px;
+            background-color: #f1f1f1;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .category-btn.active, .category-btn:hover {
+            background-color: #e83e8c;
+            color: white;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: #e83e8c;
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 10px;
+            background-color: #e83e8c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background-color: #d42d7b;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: #f1f1f1;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .about-img {
+            flex: 1;
+            padding-right: 50px;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-card .quote {
+            font-size: 16px;
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .testimonial-card .author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: #f1f1f1;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: #e83e8c;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #e83e8c;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: #e83e8c;
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: #e83e8c;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Shopping Cart Modal */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 400px;
+            height: 100vh;
+            background-color: white;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .cart-modal.active {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-header h3 {
+            font-size: 20px;
+        }
+
+        .close-cart {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .cart-items {
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            margin-right: 15px;
+        }
+
+        .cart-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-info h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: #e83e8c;
+            font-weight: 600;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .quantity-btn {
+            width: 25px;
+            height: 25px;
+            background-color: #f1f1f1;
+            border: none;
+            cursor: pointer;
+        }
+
+        .quantity-input {
+            width: 40px;
+            text-align: center;
+            margin: 0 5px;
+        }
+
+        .remove-item {
+            color: #ff4d4d;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 5px;
+            display: inline-block;
+        }
+
+        .cart-total {
+            padding: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .cart-total h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .total-price {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            font-size: 18px;
+            color: #e83e8c;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #e83e8c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .checkout-btn:hover {
+            background-color: #d42d7b;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-container {
+                flex-direction: column;
+            }
+            
+            .about-img {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                position: fixed;
+                top: 120px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 120px);
+                background-color: white;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s;
+                z-index: 99;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+
+            .cart-modal {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .top-bar-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .social-icons {
+                margin-top: 10px;
+            }
+            
+            .hero {
+                height: 400px;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .product-categories {
+                flex-wrap: wrap;
+            }
+
+            .category-btn {
+                margin: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="top-bar">
+            <div class="top-bar-container">
+                <p>Selamat datang Catering D'flamboyan 13 Sidoarjo - Catering Terlaris Sepanjang Masa</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-header">
+            <div class="header-container">
+                <div class="logo">Catering D'flamboyan 13<span>Sidoarjo</span></div>
+                
+                <nav id="mainNav">
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#products">Produk</a></li>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#testimonials">Testimoni</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                        <li><a href="#" class="cart-icon" id="cartIcon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </a></li>
+                        <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i></a></li>
+                    </ul>
+                </nav>
+                
+                <div class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Shopping Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Keranjang Belanja</h3>
+            <span class="close-cart" id="closeCart">&times;</span>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="empty-cart-message">Keranjang belanja Anda kosong</p>
+        </div>
+        <div class="cart-total">
+            <h4>Total Belanja</h4>
+            <div class="total-price">
+                <span>Total:</span>
+                <span id="cartTotal">Rp 0</span>
+            </div>
+            <button class="checkout-btn">Proses Checkout</button>
+        </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Catering Sehat dan Nikmat untuk Anda</h1>
+            <p>Kami menyediakan Masakan terbaik dengan kualitas premium dan harga terjangkau</p>
+            <a href="#products" class="btn">Lihat Produk</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="section-title">
+            <h2>Produk Kami</h2>
+            <p>Temukan masakan terbaik untuk berbagai acara dan momen spesial</p>
+        </div>
+        
+        <div class="product-categories">
+            <button class="category-btn active" data-category="all">Semua</button>
+            <button class="category-btn" data-category="bouquet">Tumpeng</button>
+            <button class="category-btn" data-category="standing">Nasi Kotak</button>
+            <button class="category-btn" data-category="box">Nasi Bento</button>
+        </div>
+        
+        <div class="product-grid" id="productGrid">
+            <!-- Products will be added here dynamically -->
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Tentang Sonokembang Surabaya">
+            </div>
+            <div class="about-content">
+                <h2>Tentang Catering D'flamboyan 13 Sidoarjo</h2>
+                <p>Catering D'flamboyan 13 Sidoarjo adalah masakan catering yang telah beroperasi sejak 2010. Kami berkomitmen untuk menyediakan masakan terbaik dengan kualitas premium.</p>
+                <p>Dengan pengalaman lebih dari 25 tahun di industri masakan, kami memahami betul bagaimana menciptakan rangkaian masakan yang nikmat dan bermakna untuk setiap momen spesial Anda.</p>
+                <p>Tim kami terdiri dari Chef profesional yang Handal dan berpengalaman, siap membantu mewujudkan Hidangan impian Anda.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-title">
+            <h2>Apa Kata Pelanggan Kami</h2>
+            <p>Berikut beberapa testimoni dari pelanggan yang telah menggunakan jasa kami</p>
+        </div>
+        
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="quote">
+                    "Masakan Dari Catering D'flamboyan 13 sangat nikmat dan tahan lama. Pengirimannya tepat waktu dan packingnya rapi. Sangat recommended!"
+                </div>
+                <div class="author">
+                    <div class="author-img">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Wijaya">
+                    </div>
+                    <div class="author-info">
+                        <h4>Riwin Paviliun RSUD Sidoarjo</h4>
+                        <p>Pelanggan sejak 2020</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="quote">
+                    "Saya selalu order bunga untuk acara kantor di Sonokembang. Harganya kompetitif dan hasilnya selalu memuaskan. Kreatif banget floristnya!"
+                </div>
+                <div class="author">
+                    <div class="author-img">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Budi Santoso">
+                    </div>
+                    <div class="author-info">
+                        <h4>Budi Santoso</h4>
+                        <p>Pelanggan sejak 2019</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="quote">
+                    "Pesan bunga untuk anniversary, hasilnya lebih bagus dari yang saya bayangkan. Istri saya sangat senang. Terima kasih Sonokembang!"
+                </div>
+                <div class="author">
+                    <div class="author-img">
+                        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Andi Pratama">
+                    </div>
+                    <div class="author-info">
+                        <h4>Andi Pratama</h4>
+                        <p>Pelanggan sejak 2020</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-title">
+            <h2>Hubungi Kami</h2>
+            <p>Silakan hubungi kami untuk informasi lebih lanjut atau pemesanan khusus</p>
+        </div>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Info Kontak</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Raya Darmo Permai III No.15, Surabaya</p>
+                <p><i class="fas fa-phone"></i> (081) 331044549 / 087703009032</p>
+                <p><i class="fas fa-envelope"></i> info@sonokembangsurabaya.com</p>
+                <p><i class="fas fa-clock"></i> Buka setiap hari 08.00 - 20.00 WIB</p>
+                
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3>Kirim Pesan</h3>
+                <form id="messageForm">
+                    <input type="text" placeholder="Nama Anda" required>
+                    <input type="email" placeholder="Email Anda" required>
+                    <input type="text" placeholder="Subjek">
+                    <textarea placeholder="Pesan Anda" required></textarea>
+                    <button type="submit" class="btn">Kirim Pesan</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Sonokembang Surabaya</h3>
+                <p>Toko bunga online terpercaya di Surabaya dengan berbagai pilihan rangkaian bunga untuk semua momen spesial.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Link Cepat</h3>
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#products">Produk</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#testimonials">Testimoni</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Kategori Produk</h3>
+                <ul>
+                    <li><a href="#" data-category="bouquet">Bouquet Bunga</a></li>
+                    <li><a href="#" data-category="standing">Standing Flower</a></li>
+                    <li><a href="#" data-category="box">Flower Box</a></li>
+                    <li><a href="#" data-category="wedding">Bunga Wedding</a></li>
+                    <li><a href="#" data-category="funeral">Bunga Duka Cita</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Follow Kami</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 Sonokembang Surabaya. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Product Data
+        const products = [
+            {
+                id: 1,
+                name: "Bouquet Mawar Merah",
+                price: 250000,
+                category: "bouquet",
+                image: "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+            },
+            {
+                id: 2,
+                name: "Standing Flower Lavender",
+                price: 750000,
+                category: "standing",
+                image: "https://images.unsplash.com/photo-1527061011665-3652c757a4d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1452&q=80"
+            },
+            {
+                id: 3,
+                name: "Flower Box Baby Breath",
+                price: 350000,
+                category: "box",
+                image: "https://images.unsplash.com/photo-1606041008023-472dfb5e530f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1376&q=80"
+            },
+            {
+                id: 4,
+                name: "Bouquet Campur Warna",
+                price: 300000,
+                category: "bouquet",
+                image: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+            },
+            {
+                id: 5,
+                name: "Standing Flower Tulip",
+                price: 850000,
+                category: "standing",
+                image: "https://images.unsplash.com/photo-1557090495-fc9312e77b28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+            },
+            {
+                id: 6,
+                name: "Flower Box Mawar Pink",
+                price: 400000,
+                category: "box",
+                image: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+            },
+            {
+                id: 7,
+                name: "Bouquet Bunga Matahari",
+                price: 275000,
+                category: "bouquet",
+                image: "https://images.unsplash.com/photo-1597822738124-151fb72dcb79?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+            },
+            {
+                id: 8,
+                name: "Standing Flower Orchid",
+                price: 950000,
+                category: "standing",
+                image: "https://images.unsplash.com/photo-1544867885-5c9d0b0b2a4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+            }
+        ];
+
+        // Shopping Cart
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // DOM Elements
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        const cartIcon = document.getElementById('cartIcon');
+        const cartModal = document.getElementById('cartModal');
+        const closeCart = document.getElementById('closeCart');
+        const overlay = document.getElementById('overlay');
+        const cartItems = document.getElementById('cartItems');
+        const cartTotal = document.getElementById('cartTotal');
+        const cartCount = document.querySelector('.cart-count');
+        const productGrid = document.getElementById('productGrid');
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const logoutBtn = document.getElementById('logoutBtn');
+        
+        // Check if user is logged in
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (!currentUser) {
+            window.location.href = 'login.html';
+        }
+        
+        // Mobile Menu Toggle
+        mobileMenuBtn.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+        });
+        
+        // Cart Toggle
+        cartIcon.addEventListener('click', function(e) {
+            e.preventDefault();
+            cartModal.classList.add('active');
+            overlay.classList.add('active');
+        });
+        
+        closeCart.addEventListener('click', function() {
+            cartModal.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+        
+        overlay.addEventListener('click', function() {
+            cartModal.classList.remove('active');
+            this.classList.remove('active');
+        });
+        
+        // Logout Functionality
+        logoutBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (confirm('Apakah Anda yakin ingin logout?')) {
+                localStorage.removeItem('currentUser');
+                window.location.href = 'login.html';
+            }
+        });
+        
+        // Display Products
+        function displayProducts(filter = 'all') {
+            productGrid.innerHTML = '';
+            
+            const filteredProducts = filter === 'all' 
+                ? products 
+                : products.filter(product => product.category === filter);
+            
+            filteredProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <div class="product-img">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <div class="price">Rp ${product.price.toLocaleString()}</div>
+                        <button class="add-to-cart" data-id="${product.id}">Tambah ke Keranjang</button>
+                    </div>
+                `;
+                productGrid.appendChild(productCard);
+            });
+            
+            // Add event listeners to add to cart buttons
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    const product = products.find(p => p.id === productId);
+                    addToCart(product);
+                });
+            });
+        }
+        
+        // Filter Products by Category
+        categoryBtns.forEach(button => {
+            button.addEventListener('click', function() {
+                categoryBtns.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                const category = this.getAttribute('data-category');
+                displayProducts(category);
+            });
+        });
+        
+        // Add to Cart Function
+        function addToCart(product) {
+            const existingItem = cart.find(item => item.id === product.id);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    quantity: 1
+                });
+            }
+            
+            updateCart();
+            showAddedToCartMessage(product.name);
+        }
+        
+        // Show Added to Cart Message
+        function showAddedToCartMessage(productName) {
+            const message = document.createElement('div');
+            message.className = 'added-to-cart-message';
+            message.textContent = `${productName} telah ditambahkan ke keranjang!`;
+            message.style.position = 'fixed';
+            message.style.bottom = '20px';
+            message.style.left = '50%';
+            message.style.transform = 'translateX(-50%)';
+            message.style.backgroundColor = '#4CAF50';
+            message.style.color = 'white';
+            message.style.padding = '10px 20px';
+            message.style.borderRadius = '5px';
+            message.style.zIndex = '1000';
+            message.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
+            message.style.animation = 'fadeInOut 3s ease-in-out';
+            
+            document.body.appendChild(message);
+            
+            setTimeout(() => {
+                message.remove();
+            }, 3000);
+        }
+        
+        // Update Cart Function
+        function updateCart() {
+            // Save cart to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Update cart count
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            // Update cart items
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="empty-cart-message">Keranjang belanja Anda kosong</p>';
+            } else {
+                cartItems.innerHTML = '';
+                cart.forEach(item => {
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <div class="cart-item-img">
+                            <img src="${item.image}" alt="${item.name}">
+                        </div>
+                        <div class="cart-item-info">
+                            <h4>${item.name}</h4>
+                            <div class="cart-item-price">Rp ${item.price.toLocaleString()}</div>
+                            <div class="cart-item-quantity">
+                                <button class="quantity-btn minus" data-id="${item.id}">-</button>
+                                <input type="text" class="quantity-input" value="${item.quantity}" readonly>
+                                <button class="quantity-btn plus" data-id="${item.id}">+</button>
+                            </div>
+                            <span class="remove-item" data-id="${item.id}">Hapus</span>
+                        </div>
+                    `;
+                    cartItems.appendChild(cartItem);
+                });
+            }
+            
+            // Update cart total
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            cartTotal.textContent = `Rp ${total.toLocaleString()}`;
+            
+            // Add event listeners to quantity buttons
+            document.querySelectorAll('.quantity-btn.minus').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    updateQuantity(productId, -1);
+                });
+            });
+            
+            document.querySelectorAll('.quantity-btn.plus').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    updateQuantity(productId, 1);
+                });
+            });
+            
+            document.querySelectorAll('.remove-item').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    removeFromCart(productId);
+                });
+            });
+        }
+        
+        // Update Quantity Function
+        function updateQuantity(productId, change) {
+            const item = cart.find(item => item.id === productId);
+            
+            if (item) {
+                item.quantity += change;
+                
+                if (item.quantity <= 0) {
+                    cart = cart.filter(item => item.id !== productId);
+                }
+                
+                updateCart();
+            }
+        }
+        
+        // Remove from Cart Function
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCart();
+        }
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (mainNav.classList.contains('active')) {
+                            mainNav.classList.remove('active');
+                        }
+                    }
+                }
+            });
+        });
+        
+        // Category links in footer
+        document.querySelectorAll('.footer-col a[data-category]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const category = this.getAttribute('data-category');
+                
+                // Update active category button
+                categoryBtns.forEach(btn => btn.classList.remove('active'));
+                document.querySelector(`.category-btn[data-category="${category}"]`).classList.add('active');
+                
+                // Display filtered products
+                displayProducts(category);
+                
+                // Scroll to products section
+                window.scrollTo({
+                    top: document.getElementById('products').offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form Submission
+        document.getElementById('messageForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Pesan Anda telah terkirim. Kami akan segera menghubungi Anda.');
+            this.reset();
+        });
+        
+        // Checkout Button
+        document.querySelector('.checkout-btn').addEventListener('click', function() {
+            if (cart.length === 0) {
+                alert('Keranjang belanja Anda kosong');
+            } else {
+                alert('Checkout berhasil! Terima kasih telah berbelanja di Sonokembang Surabaya.');
+                cart = [];
+                updateCart();
+                cartModal.classList.remove('active');
+                overlay.classList.remove('active');
+            }
+        });
+        
+        // Initialize products display
+        displayProducts();
+        updateCart();
+        
+        // Add style for added to cart message animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInOut {
+                0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+                20% { opacity: 1; transform: translateX(-50%) translateY(0); }
+                80% { opacity: 1; transform: translateX(-50%) translateY(0); }
+                100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

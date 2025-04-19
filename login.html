@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sonokembang Surabaya</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #23a6d5, #23d5ab, #e73c7e, #ee7752);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .container h2 {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px 20px;
+            border: none;
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            color: #fff;
+            font-size: 16px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .input-group input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .auth-btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            outline: none;
+            background: #fff;
+            color: #23a6d5;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .auth-btn:hover {
+            background: rgba(255, 255, 255, 0.8);
+            transform: translateY(-3px);
+        }
+
+        .error-message {
+            color: #ffeb3b;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .switch-form {
+            text-align: center;
+            margin-top: 20px;
+            color: #fff;
+        }
+
+        .switch-form a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .switch-form a:hover {
+            border-bottom: 2px solid #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Masuk ke Akun Anda</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Masukkan email" required>
+                <div class="error-message" id="emailError">Email harus diisi</div>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Masukkan password" required>
+                <div class="error-message" id="passwordError">Password harus diisi</div>
+            </div>
+
+            <button type="submit" class="auth-btn">Masuk</button>
+            
+            <div class="switch-form">
+                Belum punya akun? <a href="index.html">Daftar disini</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Reset error messages
+            document.querySelectorAll('.error-message').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Get form values
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            
+            // Validation flags
+            let isValid = true;
+            
+            // Email validation
+            if (email.length === 0) {
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Password validation
+            if (password.length === 0) {
+                document.getElementById('passwordError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // If all valid, try to login
+            if (isValid) {
+                const users = JSON.parse(localStorage.getItem('users')) || [];
+                const user = users.find(u => u.email === email && u.password === password);
+                
+                if (user) {
+                    // Set current user in localStorage
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    alert('Login berhasil! Mengarahkan ke halaman utama...');
+                    window.location.href = 'home.html';
+                } else {
+                    alert('Email atau password salah. Silakan coba lagi.');
+                }
+            }
+        });
+        
+        // Real-time validation
+        document.getElementById('email').addEventListener('input', function() {
+            if (this.value.trim().length > 0) {
+                document.getElementById('emailError').style.display = 'none';
+            }
+        });
+        
+        document.getElementById('password').addEventListener('input', function() {
+            if (this.value.length > 0) {
+                document.getElementById('passwordError').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
